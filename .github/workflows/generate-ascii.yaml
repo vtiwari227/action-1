@@ -36,7 +36,7 @@ jobs:
 
     steps:
     - name: Download Dragon text file
-      uses: actions/download-artificat@v3
+      uses: actions/download-artifact@v3
       with:
         name: dragon-txt-file
   
