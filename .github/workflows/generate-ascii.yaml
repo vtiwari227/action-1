@@ -33,7 +33,13 @@ jobs:
   deploy_job_3:
     needs: test_job_2
     runs-on: ubuntu-latest
+
     steps:
+    - name: Download Dragon text file
+      uses: actions/download-artificat@v3
+      with:
+        name: dragon-txt-file
+  
     - name: Read File
       run: cat dragon.txt
 
