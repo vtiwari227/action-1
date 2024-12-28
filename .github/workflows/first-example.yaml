@@ -1,16 +1,21 @@
-name: My First Workflow
+name: My first Github Action  # Name of the workflow 
 
-on: push
+on: push # Workflow trigger or event
 
-jobs:
-  first_job:
-    runs-on: ubuntu-latest
+jobs: # Jobs which are part of given workflow, A workflow can have multiple jobs
+  first_job: # Name of the Job
+    runs-on: ubuntu-latest # Machine type where given job will run
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        
+      - name: Welcome message
+        run: echo "This is my first Github action"
+      
+      - name: List Files
+        run: ls
+      
+      - name: Read Files
+        run: cat README.md
 
-    - name: Multi line command and List files
-      run: | 
-          echo "My first Github Action Job"
-          ls
-          cat README.md
+        
