@@ -1,0 +1,25 @@
+name: Generate ASCII Art Work  # Name should be Informative on what given GHA is doing and with first letter being capital 
+
+on: push # Trigger Event
+
+jobs:  
+  ascii_job: # Job Id should contain only lowercase letters or underscore
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo # Should be defined in Verb format
+      uses: actions/checkout@v4
+    
+    - name: Install Dependencies
+      run: sudo apt-get install cowsay -f
+
+    - name: Execute Cowsay CMD
+      run: cowsay -f dragon "Run for Cover, I'm a dragon...RAWRD" >> dragon.txt
+
+    - name: Test File Exits
+      run: grep -i "dragon" dragon.txt
+
+    - name: Read Files
+      run: cat dragon.txt
+
+    - name: List Files
+      run: ls -ltra
